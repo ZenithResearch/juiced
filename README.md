@@ -42,7 +42,7 @@ This is a new origin on port 4323, so it does not automatically inherit the refe
 
 Every page carries a permanent alpha notice. Titles, robots metadata, robots.txt and HTTP headers discourage indexing. The warning is informational: this is a public playground, not private access control. Drafts and original files remain in the visitor’s browser, and the shared services listed above are unconnected.
 
-GitHub CI tests the source and retains the approved static build. The Vercel configuration publishes only dist/ with the same security/no-index headers as the local server. The verified public alpha is https://juiced.zenith-research.ca/ with trusted HTTPS. Only dist/ is hosted; workshop and design-source pages are excluded.
+GitHub CI tests the source and retains the approved static build. The Vercel configuration publishes only dist/ with the same security/no-index headers as the local server. An explicit .vercelignore allowlist also limits uploaded build inputs to source, build scripts and deployment configuration; local QA and audit backups stay on this machine. The verified public alpha is https://juiced.zenith-research.ca/ with trusted HTTPS. Only dist/ is hosted; workshop and design-source pages are excluded.
 
 Promotion beyond alpha requires real intake/registration, recovery and operator handoffs plus deployed journey/device qualification. The alpha label is not evidence that those gates have passed.
 

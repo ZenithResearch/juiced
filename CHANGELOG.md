@@ -12,6 +12,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Fixed
 
+- Allowlist Vercel build inputs explicitly — local QA, audit backups, design source and repository notes must never be uploaded by the deployment CLI.
+- Pin deployment Node to 22.x — hosting and CI must use the same supported major rather than drifting automatically.
+
 - Include same-origin social images in the dependency-traced build and serve PNG with its image MIME type — metadata assets must work in the deployed artifact as well as the source tree.
 
 ### Changed
