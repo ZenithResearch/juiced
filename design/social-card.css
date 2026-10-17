@@ -1,0 +1,8 @@
+@font-face{font-family:Manrope;src:url('../fonts/manrope-3.ttf') format('truetype');font-weight:500}@font-face{font-family:Manrope;src:url('../fonts/manrope-4.ttf') format('truetype');font-weight:600}
+*{box-sizing:border-box}html,body{margin:0;width:1200px;height:630px;overflow:hidden;background:#eeeae0;color:#282331;font-family:Manrope,Arial,sans-serif}
+.card{position:relative;width:1200px;height:630px;padding:40px 56px;overflow:hidden}header{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between}
+.wordmark{font-size:48px;font-weight:600;letter-spacing:-.075em;line-height:1}.alpha{font:11px 'Courier New',monospace;letter-spacing:.08em;border:1px solid #bdb5c1;padding:12px 14px}
+h1{position:relative;z-index:2;margin:56px 0 0;font-size:86px;font-weight:500;letter-spacing:-.075em;line-height:1.04}h1 span{color:#6854b5}
+.offer{position:relative;z-index:2;font-size:21px;font-weight:500;letter-spacing:-.035em;line-height:1.5;margin:27px 0 0}
+.lens-art{position:absolute;z-index:1;left:568px;top:98px;width:670px;height:510px;margin:0;pointer-events:none}.lens-art canvas{display:block;width:100%;height:100%}
+footer{position:absolute;z-index:2;left:56px;right:56px;bottom:27px;padding-top:17px;border-top:1px solid #28233140;display:flex;justify-content:space-between;font:11px 'Courier New',monospace;letter-spacing:.05em}

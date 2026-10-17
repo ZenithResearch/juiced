@@ -3,7 +3,7 @@ import {readFile,realpath} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import path from 'node:path';
 import {project,securityHeaders} from './build.mjs';
-const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.svg':'image/svg+xml','.ttf':'font/ttf','.txt':'text/plain; charset=utf-8'};
+const mime={'.png':'image/png','.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.svg':'image/svg+xml','.ttf':'font/ttf','.txt':'text/plain; charset=utf-8'};
 export async function createStaticServer({root=path.join(project,'dist'),files}={}){
  const folder=await realpath(root);
  const names=new Set(files||(JSON.parse(await readFile(path.join(project,'.qa/build-manifest.json'),'utf8'))).files);

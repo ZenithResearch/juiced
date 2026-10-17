@@ -42,6 +42,12 @@ This is a new origin on port 4323, so it does not automatically inherit the refe
 
 Every page carries a permanent alpha notice. Titles, robots metadata, robots.txt and HTTP headers discourage indexing. The warning is informational: this is a public playground, not private access control. Drafts and original files remain in the visitor’s browser, and the shared services listed above are unconnected.
 
-GitHub CI tests the source and retains the approved static build. The Vercel configuration publishes only dist/ with the same security/no-index headers as the local server. The requested custom hostname must be delegated in DNS before it can serve the release. Host/domain activation is verified separately from creating a GitHub prerelease.
+GitHub CI tests the source and retains the approved static build. The Vercel configuration publishes only dist/ with the same security/no-index headers as the local server. The verified public alpha is https://juiced.zenith-research.ca/ with trusted HTTPS. Only dist/ is hosted; workshop and design-source pages are excluded.
 
 Promotion beyond alpha requires real intake/registration, recovery and operator handoffs plus deployed journey/device qualification. The alpha label is not evidence that those gates have passed.
+
+## Continuing development
+
+Use this repository on main. Devgraph Project `juiced-production-launch` is the canonical tracker for release hardening, private brand intake, Voice registration, device qualification and deferred ideas. Do not create a second checklist here or publish private tracker exports. The sibling workshop and prototype repositories are historical references and must not be deployed.
+
+The social preview is `src/social-card-v1.png`; editable capture source and instructions live in `design/`. Keep the alpha warning and matching metadata when updating it.

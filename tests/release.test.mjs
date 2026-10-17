@@ -61,3 +61,36 @@ test('hosted alpha exposes only dist with the same security and no-index headers
  for(const [key,value] of Object.entries(securityHeaders))assert.equal(hosted[key],value,key);
  assert.ok(!config.rewrites,'Unknown paths must not be rewritten into a success page.');
 });
+
+test('social previews have a traced, fetchable PNG and page-specific alpha metadata',async()=>{
+ const source=path.join(project,'src'),origin='https://juiced.zenith-research.ca';
+ const png=await readFile(path.join(source,'social-card-v1.png'));
+ assert.equal(png.subarray(1,4).toString(),'PNG');
+ assert.equal(png.readUInt32BE(16),1200);assert.equal(png.readUInt32BE(20),630);
+ assert.ok(png.length<1024*1024,'Keep the share image under 1 MB.');
+ for(const [name,url] of [['index.html',origin+'/'],['workspace.html',origin+'/workspace.html']]){
+  const html=await readFile(path.join(source,name),'utf8');
+  const metas=Object.fromEntries([...html.matchAll(/<meta (?:property|name)="([^"]+)" content="([^"]*)">/g)].map(m=>[m[1],m[2]]));
+  assert.equal(metas['og:type'],'website');assert.equal(metas['og:url'],url);
+  assert.equal(metas['og:image'],origin+'/social-card-v1.png');
+  assert.equal(metas['og:image:type'],'image/png');assert.equal(metas['og:image:width'],'1200');assert.equal(metas['og:image:height'],'630');
+  assert.ok(metas['og:image:alt']);assert.match(metas['og:title'],/Alpha/);
+  assert.match(metas['og:description'],/not ready for production|Alpha testing only/);
+  assert.equal(metas['twitter:card'],'summary_large_image');assert.equal(metas['twitter:image'],metas['og:image']);
+  assert.ok(references(html,name).includes('social-card-v1.png'));
+ }
+ const root=path.join(project,'.qa/social-test-dist'),manifest=await build({out:root});
+ assert.ok(manifest.files.includes('social-card-v1.png'));assert.ok(!manifest.files.some(name=>name.startsWith('design/')));
+ const server=await createStaticServer({root,files:manifest.files});server.listen(0,'127.0.0.1');await once(server,'listening');
+ try{
+  const response=await fetch(`http://127.0.0.1:${server.address().port}/social-card-v1.png`);
+  assert.equal(response.status,200);assert.equal(response.headers.get('content-type'),'image/png');
+  assert.deepEqual(Buffer.from(await response.arrayBuffer()),png);
+ }finally{server.closeAllConnections();await new Promise(resolve=>server.close(resolve));await rm(root,{recursive:true,force:true});}
+});
+test('social discovery only traces declared same-origin images',()=>{
+ assert.deepEqual(references('<meta content="https://juiced.zenith-research.ca/social-card-v1.png" property="og:image">','index.html'),['social-card-v1.png']);
+ assert.deepEqual(references('<meta name="twitter:image" content="/social-card-v1.png">','workspace.html'),['social-card-v1.png']);
+ assert.deepEqual(references('<meta property="og:image" content="https://example.com/other.png"><meta property="og:title" content="not-an-image.png">','index.html'),[]);
+ assert.deepEqual(references('<meta property="og:image" content="https://user:pass@juiced.zenith-research.ca/private.png">','index.html'),[]);
+});

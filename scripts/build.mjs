@@ -3,6 +3,7 @@ import {fileURLToPath} from 'node:url';
 import path from 'node:path';
 
 export const project=fileURLToPath(new URL('../',import.meta.url));
+export const siteOrigin='https://juiced.zenith-research.ca';
 export const entries=['index.html','workspace.html','404.html','robots.txt'];
 export const securityHeaders={
  'X-Content-Type-Options':'nosniff',
@@ -22,7 +23,18 @@ function localReference(value,owner){
 }
 export function references(text,name){
  const values=[];
- if(name.endsWith('.html')){for(const match of text.matchAll(/\b(?:href|src)=["']([^"']+)["']/g))values.push(match[1]);}
+ if(name.endsWith('.html')){
+  for(const match of text.matchAll(/\b(?:href|src)=["']([^"']+)["']/g))values.push(match[1]);
+  // Social images live in meta content, outside normal href/src discovery.
+  // Trace only our declared image fields; never fetch external URLs.
+  for(const match of text.matchAll(/<meta\s+[^>]*>/gi)){
+   const attrs=Object.fromEntries([...match[0].matchAll(/([\w:]+)=["']([^"']*)["']/g)].map(part=>[part[1].toLowerCase(),part[2]]));
+   if(!['og:image','og:image:secure_url','twitter:image'].includes(attrs.property||attrs.name))continue;
+   if(!attrs.content)continue;
+   const image=new URL(attrs.content,siteOrigin);
+   if(image.origin===siteOrigin&&!image.username&&!image.password)values.push(image.pathname);
+  }
+ }
  if(name.endsWith('.css')){for(const match of text.matchAll(/url\(\s*["']?([^\s)"']+)["']?\s*\)/g))values.push(match[1]);}
  if(name.endsWith('.js')){for(const match of text.matchAll(/^\s*import\s+(?:[^;\n]*?\sfrom\s+)?["']([^"']+)["']/gm))values.push(match[1]);}
  return values.map(value=>localReference(value,name)).filter(Boolean);
