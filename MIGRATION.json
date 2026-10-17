@@ -1,0 +1,221 @@
+{
+  "date": "2026-10-16",
+  "reference": "../juiced-web",
+  "scope": "Approved runtime and regression rules only; no workshop/history/review/provider fixtures",
+  "copied": [
+    {
+      "source": "public/model.js",
+      "target": "src/model.js",
+      "sha256": "5f123fc26b34605436e92e2b192f08100734ceabd6c6e4409ee2700aac705dd8"
+    },
+    {
+      "source": "public/store.js",
+      "target": "src/store.js",
+      "sha256": "0ee76cdf0ba579fbc140e64cb04e08ee6e412d5f6fa41291c4103193b814d7e0"
+    },
+    {
+      "source": "public/brand-pieces.js",
+      "target": "src/brand-pieces.js",
+      "sha256": "cce566ffb0962432d664bc882f6da7c617e6051fb7343a9d4a2ca3b9b8dfecf2"
+    },
+    {
+      "source": "public/dashboard-model.js",
+      "target": "src/dashboard-model.js",
+      "sha256": "644a4308c30d61828ff00103ee4d1e06b4da231275eb57ceccc0543d63fa1885"
+    },
+    {
+      "source": "public/dashboard-view.js",
+      "target": "src/dashboard-view.js",
+      "sha256": "0c32b1cb01853740a6d618094240e1fb6ada294fc3eb741e3285a3fb929875f9"
+    },
+    {
+      "source": "public/workspace.js",
+      "target": "src/workspace.js",
+      "sha256": "ed0b12e39c1b17d12e8026bbe743763f6f80daa6f5448015d2e181b0d9c9d2e9"
+    },
+    {
+      "source": "public/questionnaire-legacy.js",
+      "target": "src/questionnaire-legacy.js",
+      "sha256": "579472d5198d5194467f39bea761a4a1672917f4ed97146d692035550bdc2426"
+    },
+    {
+      "source": "public/questionnaire-view.js",
+      "target": "src/questionnaire-view.js",
+      "sha256": "5c21e41adc345e1bba0a33fcd557bb6fd4dab966d650b3a817bebaab645990ad"
+    },
+    {
+      "source": "public/creator-view.js",
+      "target": "src/creator-view.js",
+      "sha256": "c9068df1ad79294ffe58a933ad652e986f56c8607c21c337cb5ef5e281b683cb"
+    },
+    {
+      "source": "public/creator-about-view.js",
+      "target": "src/creator-about-view.js",
+      "sha256": "9968538c5ec2691e961c2a841f99e2904f6bc411cd2272fef41ffc828e80aa07"
+    },
+    {
+      "source": "public/creator-community-view.js",
+      "target": "src/creator-community-view.js",
+      "sha256": "19eee1ce9f3363cf94ca7a040f15e482450f2cfd8a792269a69f718525ec38fe"
+    },
+    {
+      "source": "public/creator-interest-editor.js",
+      "target": "src/creator-interest-editor.js",
+      "sha256": "7291bbf8a919dc4da039864d53383b646cbea17d48b9a63075480d5f61688f8b"
+    },
+    {
+      "source": "public/reference-presets.js",
+      "target": "src/reference-presets.js",
+      "sha256": "42eb4be7bcdcd28451b7184983ab1c2d375ebdd98ad9f34d833a1236c4e4d966"
+    },
+    {
+      "source": "public/voices-view.js",
+      "target": "src/voices-view.js",
+      "sha256": "73728281976ab0a455771f6273c856756218a204f23afe2696f64f992d159377"
+    },
+    {
+      "source": "public/art/bioluminescence-model.js",
+      "target": "src/art/bioluminescence-model.js",
+      "sha256": "3fdd30170993cd5835b90058b290104788bd95e4d547f9c7f29c557ed21fc505"
+    },
+    {
+      "source": "public/art/camera-projection.js",
+      "target": "src/art/camera-projection.js",
+      "sha256": "cd9ceb7258e93cb1f13bde9ae43a24aa66676f68aea252b2ca33572720904a0a"
+    },
+    {
+      "source": "public/art/camera-reflection.js",
+      "target": "src/art/camera-reflection.js",
+      "sha256": "5c9e61db9f8e58b6ab5bddedc3b3512d71e264dcd70bfc34f08061ae4bfe6df4"
+    },
+    {
+      "source": "public/art/circle-gesture.js",
+      "target": "src/art/circle-gesture.js",
+      "sha256": "f7dfe15415251f2aaa16e1ecfcce15c91e3dde79aa18a087cb9ff9296ffc6037"
+    },
+    {
+      "source": "public/art/glyph-data.js",
+      "target": "src/art/glyph-data.js",
+      "sha256": "353397efbd2ebe135576858cbdfae25b128ae2c1f8f93203aa009ec1cb2239ed"
+    },
+    {
+      "source": "public/art/glyph-renderer.js",
+      "target": "src/art/glyph-renderer.js",
+      "sha256": "716e12f1cbbad410a8e6b09c38771023dc7c4e3ab93a83e7385093c4061c95ce"
+    },
+    {
+      "source": "public/art/hero-contrast.js",
+      "target": "src/art/hero-contrast.js",
+      "sha256": "0c096e1324b25bd453906f3b601e719671e6ce07cab0fc9ccbce4d8c10c2a44d"
+    },
+    {
+      "source": "public/art/invitation-copy.js",
+      "target": "src/art/invitation-copy.js",
+      "sha256": "74d3a6f39d314129bda64333e39fbd155dd99aa702dd783e97ca7bc6c1c94850"
+    },
+    {
+      "source": "public/art/luminous-particles.js",
+      "target": "src/art/luminous-particles.js",
+      "sha256": "3215615748ae3f5ec44c800b38f3bfd4cd1f40ab32102009467d0abb7c1f8c85"
+    },
+    {
+      "source": "public/art/optical-renderer.js",
+      "target": "src/art/optical-renderer.js",
+      "sha256": "079e27141635e5609bad1959ee76e7bc4baf76208ff8e79bf064d09344205ece"
+    },
+    {
+      "source": "public/art/reflection-light.js",
+      "target": "src/art/reflection-light.js",
+      "sha256": "1708fc3d0b8ddc9922b82661ca62a6caef460f61971ee05ddba399ab5a3aac72"
+    },
+    {
+      "source": "public/art/rim-overflow.js",
+      "target": "src/art/rim-overflow.js",
+      "sha256": "56d264670f9fa3609b0664947e79202591c8e7019ea356790708b5e1db6e0918"
+    },
+    {
+      "source": "public/art/wake-model.js",
+      "target": "src/art/wake-model.js",
+      "sha256": "de23509c83f531fd064cce42ec0282e52222fe6ea24526f3942c2249489f0b64"
+    },
+    {
+      "source": "public/art/water-lettering.js",
+      "target": "src/art/water-lettering.js",
+      "sha256": "03743c1085e8d80b2f66948bbf95fc8c85473499739566d536ca001de59ee4e6"
+    },
+    {
+      "source": "public/art/water-model.js",
+      "target": "src/art/water-model.js",
+      "sha256": "f2e653d5633f6dcfc202973bfa96ed842680b244ddf12d6cf4479c2d69793e97"
+    },
+    {
+      "source": "public/art/water-simulation.js",
+      "target": "src/art/water-simulation.js",
+      "sha256": "fcdf17482b1d16482ed1ff507096ce60110ab7f1f48392da752c0ab137ebe864"
+    },
+    {
+      "source": "public/favicon.svg",
+      "target": "src/favicon.svg",
+      "sha256": "09ad698f733146976fef1ad66ec4ba46a29ee5f0e6e8b142f2974ee0f4e1975c"
+    },
+    {
+      "source": "public/fonts/manrope-2.ttf",
+      "target": "src/fonts/manrope-2.ttf",
+      "sha256": "a13d9b41b0a471ce58f0e46d377fa3cc76615e4632c3b15eb397caadf7a13f0a"
+    },
+    {
+      "source": "public/fonts/manrope-3.ttf",
+      "target": "src/fonts/manrope-3.ttf",
+      "sha256": "f433e5d333be1128d8ec8a28b8aadd0314d10e14e4105406076666bc830fc15d"
+    },
+    {
+      "source": "public/fonts/manrope-4.ttf",
+      "target": "src/fonts/manrope-4.ttf",
+      "sha256": "6bad1a774228464cc88b8b0271555b266f7a3c64a7bedf15e165fdab4f6ac0ce"
+    },
+    {
+      "source": "public/fonts/manrope-OFL.txt",
+      "target": "src/fonts/manrope-OFL.txt",
+      "sha256": "58172e0c0fac2cda8a37b348164bb55e44b0e69051e557e92b1d3f6910141f7b"
+    },
+    {
+      "source": "public/system/tokens.css",
+      "target": "src/styles/tokens.css",
+      "sha256": "d0d7f165e8ccd1103b04ba0bb9dc37b9953fe2da3bfc755a934ee167b9b35791"
+    },
+    {
+      "source": "public/system/components.js",
+      "target": "src/ui/components.js",
+      "sha256": "d1a4ee5692e4261526e10d5b8001e9398df585adbdb20c871b7a87a763f68b58"
+    },
+    {
+      "source": "public/system/components.css",
+      "target": "src/ui/components.css",
+      "sha256": "fe907d1272cfafcd1cb2935bfce6edb9445d93ca5c19eb94e3709de1dfbf63b6"
+    }
+  ],
+  "cssCleanup": {
+    "siteBase": {
+      "removedSelectors": 144,
+      "removedDeclarations": 3
+    },
+    "siteSections": {
+      "removedSelectors": 0,
+      "removedDeclarations": 0
+    },
+    "workspace": {
+      "removedSelectors": 302,
+      "removedDeclarations": 53
+    }
+  },
+  "retired": [
+    "Naming and opening comparisons",
+    "Workshop boards and review pages",
+    "Component demonstration gallery",
+    "AI autocomplete/provider server and configuration",
+    "Synthetic camera and hand-tracking/calibration experiments",
+    "Earlier QA sample record migration",
+    "Historical CSS layouts and superseded declarations"
+  ],
+  "serviceStatus": "Frontend release build; browser-local drafts remain local, shared services remain unconnected."
+}

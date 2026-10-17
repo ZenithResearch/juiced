@@ -1,0 +1,16 @@
+/* Juiced foundations v1. Shared values; expressive and application roles stay distinct. */
+:root{
+ --j-paper:#eeeae0;--j-ink:#282331;--j-muted:#6c6472;--j-lilac:#cec1df;--j-lilac-ui:#d3c6e1;--j-violet:#6854b5;
+ --j-surface:#faf8f2;--j-surface-soft:#e2dbe9;--j-border:#bdb5c1;--j-control-border:#857b8c;
+ --j-success:#4c5f48;--j-success-surface:#dde3d8;--j-error:#983f52;--j-error-surface:#f6e8e9;
+ --j-text:var(--j-ink);--j-text-muted:var(--j-muted);--j-text-inverse:var(--j-paper);--j-action:var(--j-ink);--j-action-hover:#493c59;--j-focus:var(--j-violet);
+ --j-font:Manrope,Arial,sans-serif;--j-font-note:'Courier New',monospace;
+ --j-text-xs:.8125rem;--j-text-sm:.875rem;--j-text-md:1rem;--j-text-lg:1.1875rem;
+ --j-title:clamp(1.5rem,2.6vw,2.25rem);--j-display:clamp(3rem,7.5vw,6.5rem);
+ --j-leading-body:1.65;--j-leading-title:1.1;--j-tracking-body:-.015em;--j-tracking-title:-.05em;--j-tracking-display:-.075em;
+ --j-space-1:4px;--j-space-2:8px;--j-space-3:12px;--j-space-4:16px;--j-space-5:20px;--j-space-6:24px;--j-space-8:32px;--j-space-10:40px;--j-space-12:48px;--j-space-16:64px;--j-space-24:96px;
+ --j-gutter:clamp(24px,4.9vw,78px);--j-control-height:44px;--j-radius:6px;--j-radius-pill:999px;
+ --j-border-width:1px;--j-focus-width:2px;--j-focus-offset:3px;--j-shadow:0 12px 45px #28233118;
+ --j-duration:160ms;--j-easing:cubic-bezier(.2,.6,.3,1);--j-layer-base:0;--j-layer-sticky:10;--j-layer-notice:20;
+}
+@media(prefers-reduced-motion:reduce){:root{--j-duration:0ms}}

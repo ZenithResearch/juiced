@@ -1,0 +1,18 @@
+dist/
+.qa/
+.local/
+.env
+.env.*
+node_modules/
+.DS_Store
+*.log
+
+# Local credentials and data must not enter a public repository.
+*.pem
+*.key
+*.p12
+*.pfx
+*.sqlite
+*.sqlite3
+*.db
+*.bundle
