@@ -1,6 +1,8 @@
 # Juiced
 
-Clean production frontend for the accepted Juiced site and brand workspace. No framework or runtime package installation is needed; use Node.js 22 or later.
+**v0.1.0-alpha.1 — Alpha testing. Not ready for production. Do not use for real work or add sensitive information; feel free to play around.**
+
+Clean frontend foundation for the accepted Juiced site and brand workspace. No framework or runtime package installation is needed; use Node.js 22 or later.
 
 ```sh
 npm run dev
@@ -35,3 +37,11 @@ The frontend is release-buildable. The workspace still saves drafts and original
 This is a new origin on port 4323, so it does not automatically inherit the reference prototype's IndexedDB at port 4321. Existing browser data stays there. Copying source files does not migrate customer files; arrange a deliberate complete export/import before retiring the old origin.
 
 `MIGRATION.json` records the retained runtime and removed prototype scaffolding. The old repositories remain unchanged. This repository contains no workshop history or account credentials.
+
+## Alpha release
+
+Every page carries a permanent alpha notice. Titles, robots metadata, robots.txt and HTTP headers discourage indexing. The warning is informational: this is a public playground, not private access control. Drafts and original files remain in the visitor’s browser, and the shared services listed above are unconnected.
+
+GitHub CI tests the source and retains the approved static build. The Vercel configuration publishes only dist/ with the same security/no-index headers as the local server. The requested custom hostname must be delegated in DNS before it can serve the release. Host/domain activation is verified separately from creating a GitHub prerelease.
+
+Promotion beyond alpha requires real intake/registration, recovery and operator handoffs plus deployed journey/device qualification. The alpha label is not evidence that those gates have passed.

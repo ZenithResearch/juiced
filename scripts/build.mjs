@@ -6,6 +6,7 @@ export const project=fileURLToPath(new URL('../',import.meta.url));
 export const entries=['index.html','workspace.html','404.html','robots.txt'];
 export const securityHeaders={
  'X-Content-Type-Options':'nosniff',
+ 'X-Robots-Tag':'noindex, nofollow, noarchive',
  'Referrer-Policy':'strict-origin-when-cross-origin',
  'X-Frame-Options':'DENY',
  'Permissions-Policy':'camera=(self), microphone=(), geolocation=()',

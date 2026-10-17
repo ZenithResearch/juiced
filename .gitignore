@@ -16,3 +16,7 @@ node_modules/
 *.sqlite3
 *.db
 *.bundle
+
+# Provider linkage is local; never publish credentials or generated provider state.
+.vercel/
+.vercel

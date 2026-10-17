@@ -31,7 +31,7 @@ test('the complete artifact excludes studies, AI proxies, hand tracking and runt
   for(const route of ['/review.html','/component-library.html','/opening-comparison.html','/.env','/README.md','/MIGRATION.json','/scripts/build.mjs','/api/autocomplete/status','/docs/production-handoff.json'])assert.equal((await fetch(origin+route)).status,404,route);
   assert.equal((await fetch(origin+'/workspace.html',{method:'POST',body:'nothing'})).status,405);
   const first=await fetch(origin+'/styles/site.css');const etag=first.headers.get('etag');assert.ok(etag);assert.equal((await fetch(origin+'/styles/site.css',{headers:{'If-None-Match':etag}})).status,304);
-  assert.match(first.headers.get('content-security-policy'),/worker-src 'none'/);assert.match(first.headers.get('permissions-policy'),/microphone=\(\)/);
+  assert.match(first.headers.get('content-security-policy'),/worker-src 'none'/);assert.match(first.headers.get('permissions-policy'),/microphone=\(\)/);assert.match(first.headers.get('x-robots-tag'),/noindex/);
  }finally{server.closeAllConnections();await new Promise(resolve=>server.close(resolve));await rm(root,{recursive:true,force:true});}
 });
 test('local dependency references stay within their source root',()=>{
@@ -39,4 +39,25 @@ test('local dependency references stay within their source root',()=>{
  assert.deepEqual(references("@import url('./tokens.css'); .font{src:url('../fonts/a.ttf')}",'styles/site.css'),['styles/tokens.css','fonts/a.ttf']);
  assert.throws(()=>references("import '../../outside.js';",'app.js'),/Unsafe source reference/);
  assert.deepEqual(references('<a href="https://example.com">Example</a><a href="#top">Top</a>','index.html'),[]);
+});
+
+test('alpha notice and no-index status survive every direct HTML entry point',async()=>{
+ const pkg=JSON.parse(await readFile(path.join(project,'package.json'),'utf8'));
+ for(const name of ['index.html','workspace.html','404.html']){
+  const html=await readFile(path.join(project,'src',name),'utf8');
+  assert.match(html,/<aside class="alpha-notice" aria-label="Alpha testing notice">/);
+  assert.match(html,/Alpha testing — not ready for production\./);
+  assert.match(html,/Do not use for real work or add sensitive information\./);
+  assert.ok(html.includes('v'+pkg.version));
+  assert.match(html,/<meta name="robots" content="noindex,nofollow,noarchive">/);
+ }
+ assert.equal(await readFile(path.join(project,'src/robots.txt'),'utf8'),'User-agent: *\nDisallow: /\n');
+});
+test('hosted alpha exposes only dist with the same security and no-index headers',async()=>{
+ const config=JSON.parse(await readFile(path.join(project,'vercel.json'),'utf8'));
+ assert.equal(config.outputDirectory,'dist');assert.equal(config.buildCommand,'npm run build');
+ const {securityHeaders}=await import('../scripts/build.mjs');
+ const hosted=Object.fromEntries(config.headers[0].headers.map(row=>[row.key,row.value]));
+ for(const [key,value] of Object.entries(securityHeaders))assert.equal(hosted[key],value,key);
+ assert.ok(!config.rewrites,'Unknown paths must not be rewritten into a success page.');
 });

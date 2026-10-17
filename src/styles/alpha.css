@@ -1,0 +1,35 @@
+/* Permanent release status: kept in normal flow, never over the artwork or dialogs. */
+.alpha-notice {
+ display:flex;
+ align-items:flex-start;
+ justify-content:space-between;
+ gap:24px;
+ padding:14px var(--j-gutter);
+ color:#302737;
+ background:#e7dfbe;
+ border-bottom:1px solid #30273745;
+ font-family:var(--j-font);
+}
+.alpha-notice strong {
+ display:block;
+ font-size:12px;
+ font-weight:600;
+ line-height:1.5;
+ letter-spacing:.015em;
+}
+.alpha-notice p {
+ max-width:100ch;
+ margin:4px 0 0;
+ font-size:12px;
+ line-height:1.6;
+}
+.alpha-version {
+ flex:none;
+ padding-top:2px;
+ font:11px/1.5 var(--j-font-note);
+ white-space:nowrap;
+}
+@media(max-width:640px) {
+ .alpha-notice {display:block;padding:12px 20px;}
+ .alpha-version {display:block;margin-top:6px;font-size:10px;}
+}
